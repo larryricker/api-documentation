@@ -1,0 +1,60 @@
+/*
+import { render, screen } from '@testing-library/react';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(<App />);
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+*/
+
+/*
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import store from './store';
+import App from './App';
+
+test('renders learn react link', () => {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+  const linkElement = screen.getByText(/learn react/i);
+  expect(linkElement).toBeInTheDocument();
+});
+*/
+/*
+import { render, screen, waitFor } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import store from './store';
+import App from './App';
+
+test('renders learn react link', async () => {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+
+  await waitFor(() => expect(screen.getByText(/api list/i)).toBeInTheDocument());
+});
+*/
+import { render, screen } from '@testing-library/react';
+import { Provider } from 'react-redux';
+import store from './store';
+import App from './App';
+
+test('renders learn react link', async () => {
+  render(
+    <Provider store={store}>
+      <App />
+    </Provider>
+  );
+
+  const linkElement = await screen.findByText(/scan form/i); // Automatically waits until the element appears
+  expect(linkElement).toBeInTheDocument();
+});
+
+

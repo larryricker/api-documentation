@@ -1,0 +1,27 @@
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background-color: #0A4783; /* Postal blue background for the card */
+  color: white; /* Adjust text color to ensure readability */
+}
+
+.card a {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+  display: block;
+  color: white; /* Adjust link color to match the postal blue theme */
+}
+
+.card p {
+  font-size: 0.9em;
+  color: white; /* Adjust paragraph color to match the postal blue theme */
+}
+
