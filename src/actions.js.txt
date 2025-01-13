@@ -1,4 +1,4 @@
-const FETCH_APIS_SUCCESS = 'FETCH_APIS_SUCCESS';
+/* const FETCH_APIS_SUCCESS = 'FETCH_APIS_SUCCESS';
 export const fetchAPIs = () => {
     return async dispatch => {
       try {
@@ -14,4 +14,25 @@ export const fetchAPIs = () => {
       }
     };
 };
+*/
 
+import yaml from 'js-yaml';
+
+const FETCH_APIS_SUCCESS = 'FETCH_APIS_SUCCESS';
+
+export const fetchAPIs = () => {
+    return async dispatch => {
+      try {
+        const response = await fetch('/path-to-your-yaml-file.yaml');
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
+        const text = await response.text();
+        const data = yaml.load(text);
+        console.log('Fetched data', data);
+        dispatch({ type: FETCH_APIS_SUCCESS, payload: data });
+      } catch (error) {
+        console.error('Error fetching APIs:', error);
+      }
+    };
+};
